@@ -87,5 +87,14 @@
     "@angular/cdk": "^19.1.2",
     "dayjs": "^1.11.7",
     "tslib": "^2.5.3"
+  },
+  "exports": {
+    "./package.json": {
+      "default": "./dist/package.json"
+    },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/fesm2022/ng2-date-picker.mjs"
+    }
   }
 }

@@ -1,11 +1,11 @@
 {
   "name": "ng2-date-picker",
-  "version": "18.0.0",
+  "version": "19.0.0",
   "author": "Vlad Ioffe",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vlio20/angular-datepicker.git"
+    "url": "https://github.com/ramencloud/angular-datepicker.git"
   },
   "keywords": [
     "angular2",
@@ -19,12 +19,12 @@
     "angular-datepicker"
   ],
   "peerDependencies": {
-    "@angular/common": "^18.0.0",
-    "@angular/core": "^18.0.0",
-    "@angular/cdk": "^18.0.0",
+    "@angular/common": "^19.1.4",
+    "@angular/core": "^19.1.4",
+    "@angular/cdk": "^19.1.2",
     "dayjs": "^1.11.4"
   },
   "dependencies": {
-    "tslib": "^2.4.0"
+    "tslib": "^2.5.3"
   }
 }

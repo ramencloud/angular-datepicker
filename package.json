@@ -88,10 +88,9 @@
     "dayjs": "^1.11.7",
     "tslib": "^2.5.3"
   },
+  "module": "./dist/ng2-date-picker/fesm2022/ng2-date-picker.mjs",
+  "typings": "./dist/ng2-date-picker/index.d.ts",
   "exports": {
-    "./package.json": {
-      "default": "./dist/ng2-date-picker/package.json"
-    },
     ".": {
       "types": "./dist/ng2-date-picker/index.d.ts",
       "default": "./dist/ng2-date-picker/fesm2022/ng2-date-picker.mjs"

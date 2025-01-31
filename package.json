@@ -90,11 +90,11 @@
   },
   "exports": {
     "./package.json": {
-      "default": "./dist/package.json"
+      "default": "./dist/ng2-date-picker/package.json"
     },
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/fesm2022/ng2-date-picker.mjs"
+      "types": "./dist/ng2-date-picker/index.d.ts",
+      "default": "./dist/ng2-date-picker/fesm2022/ng2-date-picker.mjs"
     }
   }
 }

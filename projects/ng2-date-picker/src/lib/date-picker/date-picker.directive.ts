@@ -2,18 +2,7 @@ import {CalendarMode} from '../common/types/calendar-mode';
 import {IDatePickerDirectiveConfig} from './date-picker-directive-config.model';
 import {IDpDayPickerApi} from './date-picker.api';
 import {DatePickerComponent} from './date-picker.component';
-import {
-  ComponentFactoryResolver,
-  Directive,
-  ElementRef,
-  EventEmitter,
-  HostListener,
-  Input,
-  OnInit,
-  Optional,
-  Output,
-  ViewContainerRef
-} from '@angular/core';
+import { ComponentFactoryResolver, Directive, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewContainerRef, inject } from '@angular/core';
 import {NgControl} from '@angular/forms';
 import {INavEvent} from '../common/models/navigation-event.model';
 import {UtilsService} from '../common/services/utils/utils.service'
@@ -24,9 +13,16 @@ import {Dayjs} from 'dayjs';
 
 @Directive({
   exportAs: 'dpDayPicker',
-  selector: '[dpDayPicker]'
+  selector: '[dpDayPicker]',
+  standalone: false
 })
 export class DatePickerDirective implements OnInit {
+  readonly viewContainerRef = inject(ViewContainerRef);
+  readonly elemRef = inject(ElementRef);
+  readonly componentFactoryResolver = inject(ComponentFactoryResolver);
+  readonly formControl = inject(NgControl, { optional: true });
+  readonly utilsService = inject(UtilsService);
+
 
   @Output() open = new EventEmitter<void>();
   @Output() close = new EventEmitter<void>();
@@ -37,13 +33,6 @@ export class DatePickerDirective implements OnInit {
   @Output() onSelect: EventEmitter<ISelectionEvent> = new EventEmitter();
   datePicker: DatePickerComponent;
   api: IDpDayPickerApi;
-
-  constructor(public readonly viewContainerRef: ViewContainerRef,
-              public readonly elemRef: ElementRef,
-              public readonly componentFactoryResolver: ComponentFactoryResolver,
-              @Optional() public readonly formControl: NgControl,
-              public readonly utilsService: UtilsService) {
-  }
 
   private _config: IDatePickerDirectiveConfig;
 

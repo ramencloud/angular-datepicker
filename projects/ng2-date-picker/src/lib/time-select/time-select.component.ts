@@ -1,20 +1,6 @@
 import {ECalendarValue} from '../common/types/calendar-value-enum';
 import {SingleCalendarValue} from '../common/types/single-calendar-value';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  forwardRef,
-  HostBinding,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChange,
-  SimpleChanges,
-  ViewEncapsulation
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, forwardRef, HostBinding, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges, ViewEncapsulation, inject } from '@angular/core';
 import {TimeSelectService, TimeUnit} from './time-select.service';
 
 import {ITimeSelectConfig, ITimeSelectConfigInternal} from './time-select-config.model';
@@ -40,6 +26,7 @@ import {dayjsRef} from '../common/dayjs/dayjs.ref';
   styleUrls: ['time-select.component.less'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
   providers: [
     TimeSelectService,
     {
@@ -55,6 +42,10 @@ import {dayjsRef} from '../common/dayjs/dayjs.ref';
   ]
 })
 export class TimeSelectComponent implements OnInit, OnChanges, ControlValueAccessor, Validator {
+  readonly timeSelectService = inject(TimeSelectService);
+  readonly utilsService = inject(UtilsService);
+  readonly cd = inject(ChangeDetectorRef);
+
 
   @Input() config: ITimeSelectConfig;
   @Input() displayDate: SingleCalendarValue;
@@ -83,11 +74,6 @@ export class TimeSelectComponent implements OnInit, OnChanges, ControlValueAcces
   api = {
     triggerChange: this.emitChange.bind(this)
   };
-
-  constructor(public readonly timeSelectService: TimeSelectService,
-              public readonly utilsService: UtilsService,
-              public readonly cd: ChangeDetectorRef) {
-  }
 
   _selected: Dayjs;
 

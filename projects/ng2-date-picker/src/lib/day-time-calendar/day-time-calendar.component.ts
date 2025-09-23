@@ -1,20 +1,6 @@
 import {ECalendarValue} from '../common/types/calendar-value-enum';
 import {SingleCalendarValue} from '../common/types/single-calendar-value';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  forwardRef,
-  HostBinding,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges,
-  ViewChild,
-  ViewEncapsulation
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, forwardRef, HostBinding, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild, ViewEncapsulation, inject } from '@angular/core';
 import {
   ControlValueAccessor,
   UntypedFormControl,
@@ -40,6 +26,7 @@ import {INavEvent} from '../common/models/navigation-event.model';
   templateUrl: 'day-time-calendar.component.html',
   styleUrls: ['day-time-calendar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
   encapsulation: ViewEncapsulation.None,
   providers: [
     DayTimeCalendarService,
@@ -58,6 +45,10 @@ import {INavEvent} from '../common/models/navigation-event.model';
   ]
 })
 export class DayTimeCalendarComponent implements OnInit, OnChanges, ControlValueAccessor, Validator {
+  dayTimeCalendarService = inject(DayTimeCalendarService);
+  utilsService = inject(UtilsService);
+  cd = inject(ChangeDetectorRef);
+
 
   @Input() config: IDayTimeCalendarConfig;
   @Input() displayDate: SingleCalendarValue;
@@ -77,11 +68,6 @@ export class DayTimeCalendarComponent implements OnInit, OnChanges, ControlValue
   api = {
     moveCalendarTo: this.moveCalendarTo.bind(this)
   };
-
-  constructor(public dayTimeCalendarService: DayTimeCalendarService,
-              public utilsService: UtilsService,
-              public cd: ChangeDetectorRef) {
-  }
 
   _selected: Dayjs;
 

@@ -61,7 +61,6 @@ import {ConnectionPositionPair} from '@angular/cdk/overlay';
   styleUrls: ['date-picker.component.less'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: false,
   providers: [
     DatePickerService,
     DayTimeCalendarService,

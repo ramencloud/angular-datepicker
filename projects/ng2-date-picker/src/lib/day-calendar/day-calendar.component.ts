@@ -29,7 +29,6 @@ import {dayjsRef} from '../common/dayjs/dayjs.ref';
   styleUrls: ['day-calendar.component.less'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: false,
   providers: [
     DayCalendarService,
     {

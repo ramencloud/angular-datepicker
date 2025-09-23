@@ -26,7 +26,6 @@ import {dayjsRef} from '../common/dayjs/dayjs.ref';
   styleUrls: ['time-select.component.less'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: false,
   providers: [
     TimeSelectService,
     {

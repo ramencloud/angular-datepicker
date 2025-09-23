@@ -26,7 +26,6 @@ import {INavEvent} from '../common/models/navigation-event.model';
   templateUrl: 'day-time-calendar.component.html',
   styleUrls: ['day-time-calendar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: false,
   encapsulation: ViewEncapsulation.None,
   providers: [
     DayTimeCalendarService,

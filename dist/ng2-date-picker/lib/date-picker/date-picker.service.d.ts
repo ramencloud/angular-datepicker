@@ -1,0 +1,31 @@
+import { EventEmitter } from '@angular/core';
+import { IDatePickerConfig, IDatePickerConfigInternal } from './date-picker-config.model';
+import { UtilsService } from '../common/services/utils/utils.service';
+import { IDayCalendarConfig } from '../day-calendar/day-calendar-config.model';
+import { TimeSelectService } from '../time-select/time-select.service';
+import { DayTimeCalendarService } from '../day-time-calendar/day-time-calendar.service';
+import { ITimeSelectConfig } from '../time-select/time-select-config.model';
+import { CalendarMode } from '../common/types/calendar-mode';
+import { Dayjs } from 'dayjs';
+import { IDayTimeCalendarConfig } from '../day-time-calendar/day-time-calendar-config.model';
+import { ConnectionPositionPair } from '@angular/cdk/overlay';
+import * as i0 from "@angular/core";
+export declare class DatePickerService {
+    private readonly utilsService;
+    private readonly timeSelectService;
+    private readonly daytimeCalendarService;
+    readonly onPickerClosed: EventEmitter<null>;
+    private defaultConfig;
+    constructor(utilsService: UtilsService, timeSelectService: TimeSelectService, daytimeCalendarService: DayTimeCalendarService);
+    getConfig(config: IDatePickerConfig, mode?: CalendarMode): IDatePickerConfigInternal;
+    getDayConfigService(pickerConfig: IDatePickerConfig): IDayCalendarConfig;
+    getDayTimeConfig(pickerConfig: IDatePickerConfig): IDayTimeCalendarConfig;
+    getTimeConfig(pickerConfig: IDatePickerConfig): ITimeSelectConfig;
+    pickerClosed(): void;
+    isValidInputDateValue(value: string, config: IDatePickerConfig): boolean;
+    convertInputValueToDayjsArray(value: string, config: IDatePickerConfig): Dayjs[];
+    getOverlayPosition({ drops, opens }: IDatePickerConfig): ConnectionPositionPair[] | undefined;
+    private static getDefaultFormatByMode;
+    static ɵfac: i0.ɵɵFactoryDeclaration<DatePickerService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<DatePickerService>;
+}

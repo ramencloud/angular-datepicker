@@ -42,7 +42,8 @@ import {INavEvent} from '../common/models/navigation-event.model';
       useExisting: forwardRef(() => DayTimeCalendarComponent),
       multi: true
     }
-  ]
+  ],
+  standalone: false
 })
 export class DayTimeCalendarComponent implements OnInit, OnChanges, ControlValueAccessor, Validator {
   dayTimeCalendarService = inject(DayTimeCalendarService);

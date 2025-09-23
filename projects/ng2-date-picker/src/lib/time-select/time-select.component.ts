@@ -39,7 +39,8 @@ import {dayjsRef} from '../common/dayjs/dayjs.ref';
       useExisting: forwardRef(() => TimeSelectComponent),
       multi: true
     }
-  ]
+  ],
+  standalone: false
 })
 export class TimeSelectComponent implements OnInit, OnChanges, ControlValueAccessor, Validator {
   readonly timeSelectService = inject(TimeSelectService);

@@ -77,7 +77,8 @@ import {ConnectionPositionPair} from '@angular/cdk/overlay';
       useExisting: forwardRef(() => DatePickerComponent),
       multi: true
     }
-  ]
+  ],
+  standalone: false
 })
 export class DatePickerComponent implements OnChanges,
                                             OnInit,

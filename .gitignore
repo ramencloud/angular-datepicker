@@ -36,7 +36,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-dist
 bin.tgz
 /test-results/
 /playwright-report/
